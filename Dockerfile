@@ -2,7 +2,7 @@ FROM amazonlinux:2
 
 RUN yum update -y && yum install python3 python3-pip -y
 RUN pip3 install Flask
-RUN pip3 install tensorflow
+RUN pip3 install --no-cache-dir tensorflow
 RUN pip3 install pillow
 
 WORKDIR /app
