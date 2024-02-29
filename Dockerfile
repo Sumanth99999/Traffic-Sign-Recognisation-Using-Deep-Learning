@@ -1,7 +1,6 @@
-FROM ubuntu
+FROM amazonlinux:2
 
-RUN apt update
-RUN apt install python3-pip -y
+RUN yum update -y && yum install python3 python3-pip -y
 RUN pip3 install Flask
 RUN pip3 install tensorflow
 RUN pip3 install pillow
