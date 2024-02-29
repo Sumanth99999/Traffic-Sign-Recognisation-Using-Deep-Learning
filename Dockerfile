@@ -1,7 +1,11 @@
-# Use an official Python runtime as a parent image
-FROM python:3.11-slim
+FROM ubuntu
 
-# Set the working directory in the container
+RUN apt update
+RUN apt install python3-pip -y
+RUN pip3 install Flask
+RUN pip3 install tensorflow
+RUN pip3 install pillow
+
 WORKDIR /app
 
 # Copy the current directory contents into the container at /app
@@ -9,16 +13,6 @@ COPY . /app
 
 COPY traffic_classifier.h5 /app
 
-# Install any needed packages specified in requirements.txt
-RUN apt-get update && \
-    apt-get install -y python3-tk && \
-    pip install --no-cache-dir -r requirements.txt
-
-# Make port 5000 available to the world outside this container
 EXPOSE 5000
 
-# Define environment variable
-ENV NAME World
-
-# Run app.py when the container launches
-CMD ["python", "gui.py"]
+CMD ["python3","-m","flask","run" ,"--host=0.0.0.0"]
