@@ -7,7 +7,7 @@ from PIL import Image
 
 app = Flask(__name__)
 
-# Classes of trafic signs
+# Classes of traffic signs
 classes = { 0:'Speed limit (20km/h)',
             1:'Speed limit (30km/h)',      
             2:'Speed limit (50km/h)',       
@@ -55,14 +55,18 @@ classes = { 0:'Speed limit (20km/h)',
 import io
 
 def image_processing(file_data):
-    model = load_model('traffic_classifier.h5')
-    image = Image.open(io.BytesIO(file_data))
-    image = image.resize((30,30))
-    data = np.array(image)
-    X_test = np.array([data])
-    Y_pred = model.predict(X_test)
-    predicted_class = np.argmax(Y_pred)
-    return classes[predicted_class]
+    try:
+        model = load_model('traffic_classifier.h5')
+        image = Image.open(io.BytesIO(file_data))
+        image = image.resize((30,30))
+        data = np.array(image)
+        X_test = np.array([data])
+        Y_pred = model.predict(X_test)
+        predicted_class = np.argmax(Y_pred)
+        return classes[predicted_class]
+    except Exception as e:
+        print("Exception:", e)
+        return "Not a valid image"
 
 @app.route('/')
 def index():
