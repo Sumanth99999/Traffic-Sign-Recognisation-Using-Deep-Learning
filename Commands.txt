@@ -1,0 +1,96 @@
+Git Commands:
+
+git init ---> Initiaslizes git
+
+git add -A ---> Add all the files in the current directory
+
+git commit -m "message" ---> commiting all the stages
+
+git branch -M master ---> Setting the branch
+
+git remote add origin https://github.com/Sumanth99999/dem.git ---> Adding Remote Origin
+
+git push -u origin master ---> Pushing the code
+
+LFS For Large Files
+
+Move all the large files to new directory
+
+Navigate to that directory
+
+git init ---> initialize the git
+
+git lfs install ---> Installing large file system 
+
+git lfs track "*.pkl/h5" ---> Tracking the large files
+
+git add . ---> adding the large files
+
+git commit -m "LFS" ---> commiting the big files
+
+Repeat the steps 4, 5, 6
+
+Checking the remote origins
+
+git remote -v ---> Shows the existing remote origins
+
+git remote rm origin --->Removing the remote origin
+
+Setting user Name and Email
+
+git config --global user.email <email>
+
+git config --global user.name <name> 
+
+EC2 Instance
+
+sudo su ---> entering as a root user
+
+sudo apt update ---> updating the kernal packages
+
+sudo apt install python3-pip ---> Installing Python
+
+sudo apt install docker.io ---> Installing Docker
+
+running flask app on long run
+
+nohup python3 app.py ---> Running Flask app in long term
+
+nohp python3 -m streamlit run app.py ---> Running streamlit app on long term
+
+ps -ef ---> Shows all the running pids
+
+kill <pid number> ---> kills the pid
+
+Docker Commands
+
+docker login 
+
+sudo systemctl start docker ---> Starting Docker
+
+sudo systemctl enable docker ---> Enabling Docker 
+
+sudo systemctl status docker ---> Checking Docker status
+
+docker --version ---> Checking docker version
+
+docker build -t imagename:tag . ---> Building a docker image
+
+docker run -p 5000:5000 image name ---> Running Docker image
+
+docker tag imagename:tag accname/repo(sumanthreddy1242/demo)
+
+docker push sumanthreddy1242/demo ---> Pushing the image to the docker hub
+
+Running docker image on long term(Docker)
+
+docker run -d -p 5000:5000 sumanthreddy1242/traffic:latest ---> Running Docker image in back ground
+
+docker run -d --restart=always -p 5000:5000 sumanthreddy1242/traffic:latest ---> container is restarted automatically even after you close the terminal
+
+
+ 
+
+
+
+
